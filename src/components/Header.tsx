@@ -58,7 +58,11 @@ export default function Header() {
           <div className="flex-shrink-0">
             <button 
               onClick={() => handleNavClick('#home')}
-              className="text-xl font-bold text-white hover:text-primary-foreground transition-colors"
+              className={`text-xl font-bold transition-colors ${
+                isScrolled 
+                  ? 'text-primary hover:text-primary-hover' 
+                  : 'text-white hover:text-primary-foreground'
+              }`}
             >
               Erick Vinícius
             </button>
@@ -70,7 +74,11 @@ export default function Header() {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="text-white/90 hover:text-white transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  isScrolled 
+                    ? 'text-foreground hover:text-primary' 
+                    : 'text-white/90 hover:text-white'
+                }`}
               >
                 {item.name}
               </button>
@@ -89,7 +97,11 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-white/10 transition-colors text-white"
+            className={`md:hidden p-2 rounded-md transition-colors ${
+              isScrolled 
+                ? 'hover:bg-muted text-foreground' 
+                : 'hover:bg-white/10 text-white'
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
