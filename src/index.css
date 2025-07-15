@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Professional Landing Page Design System for Erick Vinícius */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -17,8 +16,9 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 219 100% 34%;
     --primary-foreground: 210 40% 98%;
+    --primary-hover: 219 100% 28%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -26,17 +26,32 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 268 83% 57%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 219 100% 34%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(268 83% 57%) 50%, hsl(293 100% 49%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(210 40% 98%) 100%);
+    
+    /* Professional shadows */
+    --shadow-soft: 0 4px 6px -1px hsl(var(--primary) / 0.1), 0 2px 4px -1px hsl(var(--primary) / 0.06);
+    --shadow-medium: 0 10px 15px -3px hsl(var(--primary) / 0.1), 0 4px 6px -2px hsl(var(--primary) / 0.05);
+    --shadow-large: 0 20px 25px -5px hsl(var(--primary) / 0.1), 0 10px 10px -5px hsl(var(--primary) / 0.04);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+
+    /* Animation variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -99,7 +114,94 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-accent hover:from-primary-hover hover:to-accent 
+           text-primary-foreground font-medium px-8 py-3 rounded-lg 
+           transition-all duration-300 transform hover:scale-105
+           shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)];
+  }
+
+  .btn-secondary {
+    @apply bg-background border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground
+           font-medium px-8 py-3 rounded-lg transition-all duration-300
+           shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)];
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:transform hover:scale-105 
+           hover:shadow-[var(--shadow-large)];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .whatsapp-float {
+    @apply fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 
+           text-white p-4 rounded-full shadow-lg hover:shadow-xl
+           transform hover:scale-110 transition-all duration-300;
+  }
+
+  .section-padding {
+    @apply py-20 px-4 md:px-8;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
