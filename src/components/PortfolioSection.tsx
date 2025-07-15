@@ -10,7 +10,7 @@ export default function PortfolioSection() {
   const projects = [
     {
       title: "E-commerce Completo",
-      description: "Plataforma de vendas online com sistema de pagamento integrado, gestão de estoque e painel administrativo.",
+      description: "Plataforma de vendas online com sistema de pagamento integrado, gestão de estoque e painel administrativo completo.",
       image: ecommerceImg,
       technologies: ["Laravel", "Vue.js", "MySQL", "Stripe"],
       type: "Web Application",
@@ -18,7 +18,7 @@ export default function PortfolioSection() {
     },
     {
       title: "App de Produtividade",
-      description: "Aplicativo mobile para gerenciamento de tarefas e projetos com sincronização em tempo real.",
+      description: "Aplicativo mobile para gerenciamento de tarefas e projetos com sincronização em tempo real e interface intuitiva.",
       image: mobileImg,
       technologies: ["Android", "Kotlin", "Firebase", "Material Design"],
       type: "Mobile App",
@@ -26,10 +26,34 @@ export default function PortfolioSection() {
     },
     {
       title: "Landing Page Corporativa",
-      description: "Página institucional responsiva com foco em conversão e otimização para motores de busca.",
+      description: "Página institucional responsiva com foco em conversão e otimização para motores de busca (SEO).",
       image: landingImg,
       technologies: ["React", "Tailwind CSS", "Next.js", "SEO"],
       type: "Landing Page",
+      status: "Concluído"
+    },
+    {
+      title: "Sistema de Gestão ERP",
+      description: "Sistema completo para gestão empresarial com módulos de vendas, estoque, financeiro e relatórios.",
+      image: ecommerceImg,
+      technologies: ["PHP", "Laravel", "MySQL", "Vue.js"],
+      type: "Web System",
+      status: "Concluído"
+    },
+    {
+      title: "App de Delivery",
+      description: "Aplicativo para entrega de comida com sistema de pedidos, pagamentos e rastreamento em tempo real.",
+      image: mobileImg,
+      technologies: ["React Native", "Node.js", "MongoDB", "Socket.io"],
+      type: "Mobile App",
+      status: "Concluído"
+    },
+    {
+      title: "Dashboard Analytics",
+      description: "Painel de controle com gráficos interativos e métricas em tempo real para análise de dados empresariais.",
+      image: landingImg,
+      technologies: ["React", "Chart.js", "PostgreSQL", "API REST"],
+      type: "Dashboard",
       status: "Concluído"
     }
   ];

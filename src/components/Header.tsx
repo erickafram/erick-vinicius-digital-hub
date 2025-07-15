@@ -48,8 +48,8 @@ export default function Header() {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-background/80 backdrop-blur-md shadow-[var(--shadow-soft)]' 
-          : 'bg-transparent'
+          ? 'bg-background/95 backdrop-blur-md shadow-[var(--shadow-soft)]' 
+          : 'bg-background/20 backdrop-blur-sm border-b border-white/10'
       }`}
     >
       <div className="container mx-auto px-4">
@@ -58,7 +58,7 @@ export default function Header() {
           <div className="flex-shrink-0">
             <button 
               onClick={() => handleNavClick('#home')}
-              className="text-xl font-bold text-primary hover:text-primary-hover transition-colors"
+              className="text-xl font-bold text-white hover:text-primary-foreground transition-colors"
             >
               Erick Vinícius
             </button>
@@ -70,7 +70,7 @@ export default function Header() {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="text-white/90 hover:text-white transition-colors font-medium"
               >
                 {item.name}
               </button>
@@ -89,7 +89,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-muted transition-colors"
+            className="md:hidden p-2 rounded-md hover:bg-white/10 transition-colors text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -102,7 +102,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border/10">
+          <div className="md:hidden py-4 border-t border-white/10 bg-background/95 backdrop-blur-md">
             <nav className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <button

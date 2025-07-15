@@ -25,7 +25,7 @@ export default function HeroSection() {
             </h2>
             <p className="text-xl text-white/80 mb-8 max-w-2xl">
               Transformo suas ideias em soluções digitais robustas e escaláveis. 
-              Especialista em desenvolvimento completo com foco em resultados.
+              Especialista em desenvolvimento completo com foco em resultados que geram valor real para o seu negócio.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
