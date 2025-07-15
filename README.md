@@ -1,73 +1,88 @@
-# Welcome to your Lovable project
+# Erick Vinícius Digital Hub
 
-## Project info
+Um portal completo para apresentação profissional e ferramentas web gratuitas.
 
-**URL**: https://lovable.dev/projects/e5a3e11b-97a4-4276-8bc5-6414ede9e1d3
+## Funcionalidades
 
-## How can I edit this code?
+- Site institucional com informações profissionais
+- Sistema de autenticação com registro e login
+- Painel de usuário para acesso às ferramentas
+- Painel administrativo para gerenciamento de produtos e usuários
+- API RESTful com Express e SQLite
 
-There are several ways of editing your application.
+## Tecnologias Utilizadas
 
-**Use Lovable**
+- React 18 com TypeScript
+- Vite para build rápida
+- Tailwind CSS e Shadcn/UI para interface
+- Prisma ORM para gerenciamento do banco de dados
+- SQLite como banco de dados
+- Express para servidor API
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e5a3e11b-97a4-4276-8bc5-6414ede9e1d3) and start prompting.
+## Instalação
 
-Changes made via Lovable will be committed automatically to this repo.
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/erick-vinicius-digital-hub.git
+   cd erick-vinicius-digital-hub
+   ```
 
-**Use your preferred IDE**
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+3. Execute as migrações do banco de dados:
+   ```bash
+   npx prisma migrate dev
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Uso
 
-Follow these steps:
+Para desenvolvimento, execute:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+npm run dev:all
 ```
 
-**Edit a file directly in GitHub**
+Isso irá iniciar:
+- O servidor frontend em `http://localhost:5173`
+- O servidor API em `http://localhost:4000`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Para acessar o painel administrativo, use as credenciais padrão:
+- Email: admin@example.com
+- Senha: admin123
 
-**Use GitHub Codespaces**
+## Estrutura do Projeto
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- `/src` - Código frontend
+  - `/components` - Componentes React
+  - `/pages` - Páginas da aplicação
+  - `/lib` - Utilitários e funções auxiliares
+  - `/hooks` - Custom hooks
+- `/prisma` - Esquema do banco de dados e migrações
+- `server.ts` - API RESTful
 
-## What technologies are used for this project?
+## Rotas da API
 
-This project is built with:
+### Autenticação
+- `POST /api/login` - Login de usuário
+- `POST /api/register` - Registro de novo usuário
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Produtos (Ferramentas)
+- `GET /api/products` - Listar todas as ferramentas ativas (público)
+- `GET /api/admin/products` - Listar todas as ferramentas (admin)
+- `POST /api/admin/products` - Criar nova ferramenta (admin)
+- `PUT /api/admin/products/:id` - Atualizar ferramenta (admin)
+- `DELETE /api/admin/products/:id` - Remover ferramenta (admin)
 
-## How can I deploy this project?
+### Estatísticas
+- `GET /api/admin/stats` - Obter estatísticas do sistema (admin)
 
-Simply open [Lovable](https://lovable.dev/projects/e5a3e11b-97a4-4276-8bc5-6414ede9e1d3) and click on Share -> Publish.
+## Contribuição
 
-## Can I connect a custom domain to my Lovable project?
+Contribuições são bem-vindas! Por favor, sinta-se à vontade para enviar um pull request.
 
-Yes, you can!
+## Licença
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Este projeto está licenciado sob a licença MIT.

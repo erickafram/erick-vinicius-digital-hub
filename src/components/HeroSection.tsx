@@ -35,9 +35,7 @@ export default function HeroSection() {
                 <span className="text-white/90 text-sm font-medium">👨‍💻 Desenvolvedor Full Stack</span>
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              Erick <span className="text-gradient bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Vinícius</span>
-            </h1>
+           
             <h2 className="text-2xl md:text-4xl text-white/90 mb-8 font-medium">
               <span className="text-gradient bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Analista Sênior</span> Fullstack
             </h2>
@@ -73,14 +71,7 @@ export default function HeroSection() {
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
               
-              <Button 
-                variant="outline"
-                size="lg"
-                className="btn-secondary"
-              >
-                <Download className="mr-2 h-5 w-5" />
-                Download CV
-              </Button>
+             
             </div>
           </div>
 
@@ -104,7 +95,7 @@ export default function HeroSection() {
               
               {/* Enhanced floating badges */}
               <div className="absolute -top-6 -right-6 bg-gradient-to-r from-blue-500/90 to-purple-500/90 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 shadow-lg">
-                <span className="text-white font-semibold text-sm">🚀 5+ anos</span>
+                <span className="text-white font-semibold text-sm">🚀 15+ anos</span>
               </div>
               
               <div className="absolute -bottom-6 -left-6 bg-gradient-to-r from-cyan-500/90 to-blue-500/90 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 shadow-lg">

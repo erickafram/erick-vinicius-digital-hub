@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Code, LogIn, UserPlus } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,7 +49,7 @@ export default function Header() {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-background/95 backdrop-blur-md shadow-[var(--shadow-soft)]' 
+          ? 'bg-background/95 backdrop-blur-md shadow-md' 
           : 'bg-background/20 backdrop-blur-sm border-b border-white/10'
       }`}
     >
@@ -58,13 +59,13 @@ export default function Header() {
           <div className="flex-shrink-0">
             <button 
               onClick={() => handleNavClick('#home')}
-              className={`text-xl font-bold transition-colors ${
+              className={`text-xl font-bold transition-colors flex items-center gap-2 ${
                 isScrolled 
                   ? 'text-primary hover:text-primary-hover' 
                   : 'text-white hover:text-primary-foreground'
               }`}
             >
-              Erick Vinícius
+              <Code className="h-5 w-5" />
             </button>
           </div>
 
@@ -85,8 +86,36 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA and Auth */}
           <div className="hidden md:flex items-center space-x-4">
+            <Link to="/login">
+              <Button 
+                variant="ghost" 
+                className={`flex items-center gap-1 ${
+                  isScrolled 
+                    ? 'text-foreground hover:text-primary' 
+                    : 'text-white/90 hover:text-white'
+                }`}
+              >
+                <LogIn size={16} />
+                Login
+              </Button>
+            </Link>
+            
+            <Link to="/register">
+              <Button 
+                variant="outline" 
+                className={`flex items-center gap-1 ${
+                  isScrolled 
+                    ? 'border-primary text-primary hover:bg-primary/10' 
+                    : 'border-white/60 text-white hover:bg-white/10'
+                }`}
+              >
+                <UserPlus size={16} />
+                Cadastrar
+              </Button>
+            </Link>
+            
             <Button 
               onClick={handleWhatsAppClick}
               className="btn-primary"
@@ -125,6 +154,23 @@ export default function Header() {
                   {item.name}
                 </button>
               ))}
+              
+              {/* Auth Buttons Mobile */}
+              <div className="border-t border-white/10 pt-2 mt-2">
+                <Link to="/login" className="w-full">
+                  <button className="w-full flex items-center gap-2 text-left px-4 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors rounded-md">
+                    <LogIn size={16} />
+                    Login
+                  </button>
+                </Link>
+                <Link to="/register" className="w-full">
+                  <button className="w-full flex items-center gap-2 text-left px-4 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors rounded-md">
+                    <UserPlus size={16} />
+                    Cadastrar
+                  </button>
+                </Link>
+              </div>
+              
               <div className="pt-4 px-4">
                 <Button 
                   onClick={handleWhatsAppClick}
