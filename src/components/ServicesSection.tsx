@@ -7,30 +7,30 @@ export default function ServicesSection() {
   const services = [
     {
       icon: Code,
-      title: "Desenvolvimento PHP",
-      description: "Sistemas web robustos e escaláveis utilizando PHP moderno e frameworks como Laravel",
-      features: ["Laravel", "APIs RESTful", "Arquitetura limpa", "Testes automatizados"],
+      title: "Desenvolvimento Web",
+      description: "Sistemas web modernos e escaláveis",
+      features: ["PHP", "Laravel", "Python", "Django", "APIs RESTful"],
       color: "from-blue-500 to-purple-600"
     },
     {
-      icon: Smartphone,
-      title: "Aplicativos Android",
-      description: "Apps nativos e híbridos com foco em performance e experiência do usuário",
-      features: ["Kotlin", "Android Studio", "Material Design", "Play Store"],
+      icon: Database,
+      title: "Backend & APIs",
+      description: "Soluções robustas para servidor e integração",
+      features: ["Node.js", "C#", ".NET", "PostgreSQL", "MongoDB"],
       color: "from-green-500 to-teal-600"
     },
     {
-      icon: Globe,
-      title: "Landing Pages",
-      description: "Páginas de conversão otimizadas para gerar leads e maximizar resultados",
-      features: ["Design responsivo", "SEO otimizado", "Alta conversão", "Analytics"],
+      icon: Smartphone,
+      title: "Aplicativos Mobile",
+      description: "Apps nativos e híbridos para Android e iOS",
+      features: ["React Native", "Kotlin", "Flutter", "Android Studio"],
       color: "from-purple-500 to-pink-600"
     },
     {
-      icon: Database,
-      title: "Desenvolvimento Fullstack",
-      description: "Soluções completas do front-end ao back-end, incluindo banco de dados",
-      features: ["React", "Node.js", "PostgreSQL", "Deploy automático"],
+      icon: Globe,
+      title: "Frontend & Landing Pages",
+      description: "Interfaces modernas e páginas de alta conversão",
+      features: ["React", "TypeScript", "Tailwind", "SEO", "Analytics"],
       color: "from-orange-500 to-red-600"
     }
   ];
@@ -49,7 +49,7 @@ export default function ServicesSection() {
             Meus <span className="text-gradient">Serviços</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Oferecemos soluções completas de desenvolvimento para transformar suas ideias em realidade digital
+            Soluções completas em diversas tecnologias para seus projetos
           </p>
         </div>
 
