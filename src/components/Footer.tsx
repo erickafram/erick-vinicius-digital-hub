@@ -1,4 +1,4 @@
-import { Heart, Code, Github, Linkedin, Mail } from "lucide-react";
+import { Code, Github, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -72,7 +72,7 @@ export default function Footer() {
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-primary-foreground/80">
           <p className="flex items-center justify-center gap-2">
-            Desenvolvido com <Heart className="h-4 w-4 text-red-400" /> e <Code className="h-4 w-4" /> por Erick Vinícius
+            Desenvolvido com <Code className="h-4 w-4" /> por Erick Vinícius
           </p>
           <p className="mt-2 text-sm">
             © {currentYear} Erick Vinícius. Todos os direitos reservados.

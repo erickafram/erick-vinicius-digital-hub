@@ -103,6 +103,115 @@ app.delete('/api/admin/products/:id', authMiddleware, adminMiddleware, async (re
   res.status(result.status).json(result.body);
 });
 
+// User management routes
+app.get('/api/admin/users', authMiddleware, adminMiddleware, async (req, res) => {
+  try {
+    const users = await prisma.user.findMany({
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        createdAt: true,
+        updatedAt: true
+      },
+      orderBy: { createdAt: 'desc' }
+    });
+    
+    res.status(200).json(users);
+  } catch (error) {
+    console.error('Get users error:', error);
+    res.status(500).json({ message: 'Erro ao buscar usuários' });
+  }
+});
+
+app.post('/api/admin/users', authMiddleware, adminMiddleware, async (req, res) => {
+  const result = await registerHandler(req.body);
+  
+  if (result.status === 201 && req.body.role === 'ADMIN') {
+    // Update role to ADMIN if specified
+    try {
+      await prisma.user.update({
+        where: { email: req.body.email },
+        data: { role: 'ADMIN' }
+      });
+      
+      // Fetch updated user
+      const updatedUser = await prisma.user.findUnique({
+        where: { email: req.body.email },
+        select: { id: true, name: true, email: true, role: true }
+      });
+      
+      result.body.user = updatedUser;
+    } catch (error) {
+      console.error('Error updating user role:', error);
+    }
+  }
+  
+  res.status(result.status).json(result.body);
+});
+
+app.put('/api/admin/users/:id', authMiddleware, adminMiddleware, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, email, password, role } = req.body;
+    
+    const updateData: any = {
+      name,
+      email,
+      role
+    };
+    
+    // Only update password if provided
+    if (password) {
+      const { hashPassword } = await import('./src/lib/auth');
+      updateData.password = await hashPassword(password);
+    }
+    
+    const user = await prisma.user.update({
+      where: { id },
+      data: updateData,
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        createdAt: true,
+        updatedAt: true
+      }
+    });
+    
+    res.status(200).json({
+      message: 'Usuário atualizado com sucesso',
+      user
+    });
+  } catch (error) {
+    console.error('Update user error:', error);
+    res.status(500).json({ message: 'Erro ao atualizar usuário' });
+  }
+});
+
+app.delete('/api/admin/users/:id', authMiddleware, adminMiddleware, async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    // Prevent deleting the current admin user
+    const currentUser = (req as any).user;
+    if (currentUser.id === id) {
+      return res.status(400).json({ message: 'Você não pode excluir sua própria conta' });
+    }
+    
+    await prisma.user.delete({
+      where: { id }
+    });
+    
+    res.status(200).json({ message: 'Usuário excluído com sucesso' });
+  } catch (error) {
+    console.error('Delete user error:', error);
+    res.status(500).json({ message: 'Erro ao excluir usuário' });
+  }
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`API server running on port ${port}`);

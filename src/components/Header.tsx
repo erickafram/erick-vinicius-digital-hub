@@ -20,6 +20,7 @@ export default function Header() {
     { name: 'Início', href: '#home' },
     { name: 'Sobre', href: '#about' },
     { name: 'Serviços', href: '#services' },
+    { name: 'Ferramentas', href: '#tools' },
     { name: 'Portfólio', href: '#portfolio' },
     { name: 'Depoimentos', href: '#testimonials' },
     { name: 'Contato', href: '#contact' }
@@ -41,7 +42,7 @@ export default function Header() {
 
   const handleWhatsAppClick = () => {
     const message = "Olá! Gostaria de conversar sobre um projeto.";
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/63992410056?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 

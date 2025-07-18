@@ -16,17 +16,17 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Simular envio do formulário
     toast.success("Mensagem enviada com sucesso! Responderemos em breve.");
-    
+
     // Limpar formulário
     setFormData({ name: '', email: '', message: '' });
   };
 
   const handleWhatsAppClick = () => {
     const message = `Olá! Meu nome é ${formData.name || '[Nome]'} e gostaria de conversar sobre um projeto.`;
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/63992410056?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -34,19 +34,19 @@ export default function ContactSection() {
     {
       icon: Mail,
       label: "Email",
-      value: "contato@erickvinicius.dev",
-      href: "mailto:contato@erickvinicius.dev"
+      value: " portifolio",
+      href: "mailto:erickafram08@gmail.com"
     },
     {
       icon: Phone,
       label: "WhatsApp",
-      value: "+55 (11) 99999-9999",
-      href: "https://wa.me/5511999999999"
+      value: "+55 (63) 99241-0056",
+      href: "https://wa.me/63992410056"
     },
     {
       icon: MapPin,
       label: "Localização",
-      value: "São Paulo, SP - Brasil",
+      value: "Palmas, TO - Brasil",
       href: null
     }
   ];
@@ -77,11 +77,11 @@ export default function ContactSection() {
                     id="name"
                     placeholder="Seu nome"
                     value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
                   <Input
@@ -89,11 +89,11 @@ export default function ContactSection() {
                     type="email"
                     placeholder="seu@email.com"
                     value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="message">Mensagem</Label>
                   <Textarea
@@ -101,18 +101,18 @@ export default function ContactSection() {
                     placeholder="Conte-me sobre seu projeto..."
                     rows={4}
                     value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
                   />
                 </div>
-                
+
                 <div className="flex gap-3">
                   <Button type="submit" className="flex-1 btn-primary">
                     <Send className="h-4 w-4 mr-2" />
                     Enviar mensagem
                   </Button>
-                  <Button 
-                    type="button" 
+                  <Button
+                    type="button"
                     onClick={handleWhatsAppClick}
                     className="btn-secondary"
                   >
@@ -128,7 +128,7 @@ export default function ContactSection() {
             <div>
               <h3 className="text-2xl font-semibold mb-4">Vamos conversar</h3>
               <p className="text-muted-foreground mb-8">
-                Estou sempre disponível para discutir novos projetos e oportunidades. 
+                Estou sempre disponível para discutir novos projetos e oportunidades.
                 Entre em contato através dos canais abaixo ou use o formulário ao lado.
               </p>
             </div>
@@ -144,7 +144,7 @@ export default function ContactSection() {
                       <div>
                         <div className="font-medium">{info.label}</div>
                         {info.href ? (
-                          <a 
+                          <a
                             href={info.href}
                             className="text-muted-foreground hover:text-primary transition-colors"
                             target={info.href.startsWith('http') ? '_blank' : undefined}
@@ -165,10 +165,10 @@ export default function ContactSection() {
               <CardContent className="p-6">
                 <h4 className="font-semibold mb-2">Resposta rápida</h4>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Precisa de uma resposta imediata? Entre em contato pelo WhatsApp 
+                  Precisa de uma resposta imediata? Entre em contato pelo WhatsApp
                   e receba retorno em até 1 hora durante o horário comercial.
                 </p>
-                <Button 
+                <Button
                   onClick={handleWhatsAppClick}
                   className="btn-primary w-full"
                 >

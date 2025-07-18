@@ -37,7 +37,7 @@ export default function ServicesSection() {
 
   const handleWhatsAppClick = () => {
     const message = "Olá! Gostaria de conversar sobre um projeto.";
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/63992410056?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 

@@ -5,7 +5,7 @@ import heroImage from "@/assets/hero-profile.jpg";
 export default function HeroSection() {
   const handleWhatsAppClick = () => {
     const message = "Olá! Gostaria de conversar sobre um projeto.";
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/63992410056?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -24,7 +24,14 @@ export default function HeroSection() {
         <div className="absolute bottom-32 left-40 w-8 h-8 border border-white/20 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
       </div>
       
-      <div className="absolute inset-0 bg-black/30"></div>
+      {/* Clean dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
+      
+      {/* Subtle glowing lines */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent animate-pulse"></div>
+        <div className="absolute top-2/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400/25 to-transparent animate-pulse" style={{animationDelay: '2s'}}></div>
+      </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">

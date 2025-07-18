@@ -43,7 +43,7 @@ export default function AboutSection() {
             
             <p className="text-lg text-muted-foreground mb-6">
               Sou um desenvolvedor fullstack apaixonado por criar soluções digitais que fazem a diferença. 
-              Com mais de 5 anos de experiência, já desenvolvi dezenas de projetos para empresas de 
+              Com mais de 15 anos de experiência, já desenvolvi dezenas de projetos para empresas de 
               diversos segmentos.
             </p>
             

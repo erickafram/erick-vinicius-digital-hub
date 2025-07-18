@@ -11,6 +11,8 @@ import Privacy from "./pages/Privacy";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ProductManagement from "./pages/admin/ProductManagement";
+import NewProduct from "./pages/admin/NewProduct";
+import UserManagement from "./pages/admin/UserManagement";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +38,8 @@ const App = () => (
           {/* Admin Routes */}
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/products" element={<ProductManagement />} />
+          <Route path="/admin/products/new" element={<NewProduct />} />
+          <Route path="/admin/users" element={<UserManagement />} />
           
           {/* Catch-all */}
           <Route path="*" element={<NotFound />} />

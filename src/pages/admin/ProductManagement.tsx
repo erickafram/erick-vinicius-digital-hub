@@ -69,7 +69,12 @@ export default function ProductManagement() {
   const fetchProducts = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('/api/admin/products');
+      const token = localStorage.getItem('authToken');
+      const response = await fetch('/api/admin/products', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
       
       if (!response.ok) {
         throw new Error('Falha ao carregar produtos');

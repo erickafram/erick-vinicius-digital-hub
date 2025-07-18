@@ -5,6 +5,46 @@ import { Button } from "@/components/ui/button";
 export default function PortfolioSection() {
   const projects = [
     {
+      title: "Infovisa",
+      description: "Sistema de Gestão de Processos de Vigilância Sanitária com controle completo de documentos e processos administrativos.",
+      image: "https://infovisa.gurupi.to.gov.br/visamunicipal/assets/img/logo.png",
+      technologies: ["PHP", "Laravel", "MySQL", "Bootstrap"],
+      type: "Web System",
+      status: "Concluído"
+    },
+    {
+      title: "Portal Convictus",
+      description: "Site de entretenimento com conteúdo dinâmico, sistema de usuários e área administrativa completa.",
+      image: "https://portalconvictos.com.br/wp-content/uploads/2025/07/1.png",
+      technologies: ["WordPress", "PHP", "MySQL", "JavaScript"],
+      type: "Web Platform",
+      status: "Concluído"
+    },
+    {
+      title: "O Buxixo Gospel",
+      description: "Site de entretenimento gospel com notícias, eventos e conteúdo religioso para a comunidade cristã.",
+      image: "https://www.obuxixogospel.com.br/wp-content/uploads/2024/02/lOGO-12.png",
+      technologies: ["WordPress", "PHP", "MySQL", "CSS"],
+      type: "Web Platform",
+      status: "Concluído"
+    },
+    {
+      title: "Portal Vigilância Sanitária Tocantins",
+      description: "Site institucional e sistema de gestão de documentos para órgão público com área restrita e controle de acesso.",
+      image: "https://vigilancia-to.com.br/sitevisa/assets/img/logo.png",
+      technologies: ["PHP", "Laravel", "MySQL", "Vue.js"],
+      type: "Web System",
+      status: "Concluído"
+    },
+    {
+      title: "Plataforma de Cassino Top",
+      description: "Plataforma completa de cassino online com jogos, sistema de pagamentos e painel administrativo avançado.",
+      image: "https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=300&h=200&fit=crop&crop=center&auto=format&q=80",
+      technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
+      type: "Web Platform",
+      status: "Concluído"
+    },
+    {
       title: "E-commerce Completo",
       description: "Plataforma de vendas online com sistema de pagamento integrado, gestão de estoque e painel administrativo completo.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=300&h=200&fit=crop&crop=center&auto=format&q=80",
@@ -21,27 +61,11 @@ export default function PortfolioSection() {
       status: "Concluído"
     },
     {
-      title: "Landing Page Corporativa",
-      description: "Página institucional responsiva com foco em conversão e otimização para motores de busca (SEO).",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop&crop=center&auto=format&q=80",
-      technologies: ["React", "Tailwind CSS", "Next.js", "SEO"],
-      type: "Landing Page",
-      status: "Concluído"
-    },
-    {
       title: "Sistema de Gestão ERP",
       description: "Sistema completo para gestão empresarial com módulos de vendas, estoque, financeiro e relatórios.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop&crop=center&auto=format&q=80",
       technologies: ["PHP", "Laravel", "MySQL", "Vue.js"],
       type: "Web System",
-      status: "Concluído"
-    },
-    {
-      title: "App de Delivery",
-      description: "Aplicativo para entrega de comida com sistema de pedidos, pagamentos e rastreamento em tempo real.",
-      image: "https://images.unsplash.com/photo-1526367790999-0150786686a2?w=300&h=200&fit=crop&crop=center&auto=format&q=80",
-      technologies: ["React Native", "Node.js", "MongoDB", "Socket.io"],
-      type: "Mobile App",
       status: "Concluído"
     },
     {
@@ -59,36 +83,12 @@ export default function PortfolioSection() {
       technologies: ["Next.js", "Prisma", "PostgreSQL", "Stripe"],
       type: "Web Application",
       status: "Concluído"
-    },
-    {
-      title: "App de Fitness",
-      description: "Aplicativo para acompanhamento de exercícios com planos personalizados, métricas de progresso e comunidade.",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop&crop=center&auto=format&q=80",
-      technologies: ["Flutter", "Firebase", "Dart", "Health Kit"],
-      type: "Mobile App",
-      status: "Concluído"
-    },
-    {
-      title: "Portal Imobiliário",
-      description: "Plataforma para compra e venda de imóveis com busca avançada, tour virtual e sistema de favoritos.",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=300&h=200&fit=crop&crop=center&auto=format&q=80",
-      technologies: ["Angular", "Spring Boot", "MySQL", "AWS S3"],
-      type: "Web Platform",
-      status: "Concluído"
-    },
-    {
-      title: "Sistema de CRM",
-      description: "Plataforma de relacionamento com cliente incluindo pipeline de vendas, automação de marketing e relatórios.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop&crop=center&auto=format&q=80",
-      technologies: ["React", "Node.js", "MongoDB", "Redis"],
-      type: "Web System",
-      status: "Concluído"
     }
   ];
 
   const handleViewProject = (projectTitle: string) => {
     const message = `Olá! Gostaria de saber mais sobre o projeto "${projectTitle}".`;
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/63992410056?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -108,28 +108,36 @@ export default function PortfolioSection() {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="card-hover border-0 shadow-[var(--shadow-soft)] bg-background overflow-hidden animate-slide-up group"
+              className="card-hover border-0 shadow-lg hover:shadow-2xl bg-background overflow-hidden animate-slide-up group transition-all duration-300 hover:-translate-y-2"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                />
+
+              <div className="relative overflow-hidden bg-gradient-to-br from-muted/20 to-muted/40 shadow-inner">
+                <div className="aspect-[4/3] w-full relative">
+                  <img
+                    src={project.image}
+                    alt={`Screenshot do projeto ${project.title}`}
+                    className="w-full h-full object-contain bg-white transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
+                    loading="lazy"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = `https://via.placeholder.com/400x300/f1f5f9/64748b?text=${encodeURIComponent(project.title)}`;
+                      target.className = "w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110";
+                    }}
+                  />
+                  {/* Overlay gradient on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
                 <div className="absolute top-4 right-4">
-                  <Badge variant="secondary" className="bg-background/80 backdrop-blur-sm">
+                  <Badge variant="secondary" className="bg-background/90 backdrop-blur-sm shadow-sm">
                     {project.type}
                   </Badge>
                 </div>
               </div>
 
               <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-semibold">{project.title}</h3>
-                  <Badge variant="outline" className="text-xs">
-                    {project.status}
-                  </Badge>
+                <div className="mb-3">
+                  <h3 className="text-base font-semibold">{project.title}</h3>
                 </div>
 
                 <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
