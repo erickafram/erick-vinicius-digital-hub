@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   apps: [{
     name: 'erick-digital-hub',
     script: 'server.ts',
