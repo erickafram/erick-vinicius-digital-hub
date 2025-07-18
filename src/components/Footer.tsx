@@ -32,7 +32,7 @@ export default function Footer() {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a 
-                href="mailto:contato@erickvinicius.dev"
+                href="mailto:erickafram08@gmail.com"
                 className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors"
               >
                 <Mail className="h-5 w-5" />
@@ -56,16 +56,16 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Contato</h4>
             <ul className="space-y-2 text-primary-foreground/80">
               <li>
-                <a href="mailto:contato@erickvinicius.dev" className="hover:text-primary-foreground transition-colors">
-                  contato@erickvinicius.dev
+                <a href="mailto:erickafram08@gmail.com" className="hover:text-primary-foreground transition-colors">
+                erickafram08@gmail.com
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/5511999999999" className="hover:text-primary-foreground transition-colors">
-                  +55 (11) 99999-9999
+                <a href="https://wa.me/5563992410056" className="hover:text-primary-foreground transition-colors">
+                  +55 (63) 99241-0056
                 </a>
               </li>
-              <li>São Paulo, SP - Brasil</li>
+              <li>Palmas, TO - Brasil</li>
             </ul>
           </div>
         </div>
