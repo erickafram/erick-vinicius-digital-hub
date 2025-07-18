@@ -10,7 +10,10 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "tsx server.ts",
-    "dev:all": "concurrently \"npm run dev\" \"npm run server\""
+    "server:prod": "NODE_ENV=production tsx server.ts",
+    "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
+    "build:full": "npm run build && npm run server:prod",
+    "start": "NODE_ENV=production tsx server.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

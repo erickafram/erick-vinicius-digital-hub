@@ -1,0 +1,68 @@
+# Configuração Apache para erickdev.online
+# Salve este conteúdo em: /etc/apache2/sites-available/erickdev.online.conf
+
+<VirtualHost *:80>
+    ServerName erickdev.online
+    DocumentRoot /var/www/html/erick-vinicius-digital-hub/dist
+    
+    # Redirecionar para HTTPS
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</VirtualHost>
+
+<VirtualHost *:443>
+    ServerName erickdev.online
+    DocumentRoot /var/www/html/erick-vinicius-digital-hub/dist
+    
+    # SSL Configuration (ajuste os caminhos dos certificados)
+    SSLEngine on
+    SSLCertificateFile /path/to/your/certificate.crt
+    SSLCertificateKeyFile /path/to/your/private.key
+    
+    # Enable mod_rewrite
+    RewriteEngine On
+    
+    # Proxy todas as requisições /api para Node.js
+    ProxyPreserveHost On
+    ProxyPass /api/ http://localhost:4000/api/
+    ProxyPassReverse /api/ http://localhost:4000/api/
+    
+    # Para WebSocket (se necessário no futuro)
+    ProxyPass /socket.io/ http://localhost:4000/socket.io/
+    ProxyPassReverse /socket.io/ http://localhost:4000/socket.io/
+    
+    # Servir arquivos estáticos do React
+    <Directory "/var/www/html/erick-vinicius-digital-hub/dist">
+        Options -Indexes
+        AllowOverride All
+        Require all granted
+        
+        # React Router - redirecionar tudo para index.html
+        RewriteEngine On
+        RewriteBase /
+        RewriteRule ^index\.html$ - [L]
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteCond %{REQUEST_URI} !^/api/
+        RewriteRule . /index.html [L]
+    </Directory>
+    
+    # Headers de segurança
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Logs
+    ErrorLog ${APACHE_LOG_DIR}/erickdev.online_error.log
+    CustomLog ${APACHE_LOG_DIR}/erickdev.online_access.log combined
+</VirtualHost>
+
+# Comandos para ativar:
+# sudo a2enmod rewrite
+# sudo a2enmod proxy
+# sudo a2enmod proxy_http
+# sudo a2enmod headers
+# sudo a2enmod ssl
+# sudo a2ensite erickdev.online.conf
+# sudo systemctl reload apache2 

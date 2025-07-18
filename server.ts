@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { prisma } from './src/lib/db';
 import { 
   loginHandler, 
@@ -13,12 +15,21 @@ import {
 } from './src/lib/api-handlers';
 import { getUserFromToken, checkIsAdmin } from './src/lib/auth';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 const port = process.env.PORT || 4000;
+const isProduction = process.env.NODE_ENV === 'production';
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from dist folder in production
+if (isProduction) {
+  app.use(express.static(path.join(__dirname, 'dist')));
+}
 
 // Authentication middleware
 const authMiddleware = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
@@ -212,9 +223,21 @@ app.delete('/api/admin/users/:id', authMiddleware, adminMiddleware, async (req, 
   }
 });
 
+// Serve React app for all non-API routes in production
+if (isProduction) {
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  });
+}
+
 // Start the server
 app.listen(port, () => {
-  console.log(`API server running on port ${port}`);
+  console.log(`${isProduction ? 'Production' : 'Development'} server running on port ${port}`);
+  if (isProduction) {
+    console.log(`Frontend and API available at http://localhost:${port}`);
+  } else {
+    console.log(`API server available at http://localhost:${port}`);
+  }
 });
 
 // Seed initial admin user if not exists
